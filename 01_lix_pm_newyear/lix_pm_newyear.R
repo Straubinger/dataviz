@@ -27,7 +27,7 @@ segment_arrows <- tibble(
 curve_arrows <- tibble(
   x1 = c(as.Date("1998-10-01"), as.Date("2005-07-01"), as.Date("2012-06-01")),
   x2 = c(as.Date("2001-05-01"), as.Date("2010-08-01"), as.Date("2014-10-01")),
-  y1 = c(40, 27, 21),
+  y1 = c(39.5, 27, 21),
   y2 = c(36.5, 29, 23)
 )
 
@@ -105,4 +105,4 @@ ggplot(subset(lix, type %in% c("newyear_pm_dk", "newyear_pm_no")),
         axis.ticks.x = element_line(),
         text = element_text(family = plot_font))
   
-ggsave("lix_pm_newyear_plot.png", width = 14, height = 9)
+ggsave("lix_pm_newyear_plot.png", width = 14, height = 8)
