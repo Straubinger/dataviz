@@ -73,11 +73,11 @@ ggplot(subset(lix, type %in% c("newyear_pm_dk", "newyear_pm_no")),
            label = "Frederikesen") +
   # Intepretation of LIX scores
   annotate("text", x = as.Date("1985-07-01"), y = 24, vjust = "top", hjust = "left",
-           color = annotate_color, family = plot_font, size = 5, label = "LIX under 25\nMeget let niveau\nF.eks. Børnelitteratur") +
+           color = annotate_color, family = plot_font, size = 5, label = "LIX under 25\nMeget let niveau\nF.eks. børnelitteratur") +
   annotate("text", x = as.Date("1985-07-01"), y = 26, vjust = "bottom", hjust = "left",
-           color = annotate_color, family = plot_font,  size = 5, label = "LIX 25-34\nLet niveau\nF.eks. Ugeblade") +
+           color = annotate_color, family = plot_font,  size = 5, label = "LIX 25-34\nLet niveau\nF.eks. ugeblade") +
   annotate("text", x = as.Date("2019-07-01"), y = 36, vjust = "bottom", hjust = "right",
-           color = annotate_color, family = plot_font, size = 5, label = "LIX 35-44\nMiddel niveau\nF.eks. Ugeblade") +
+           color = annotate_color, family = plot_font, size = 5, label = "LIX 35-44\nMiddel niveau\nF.eks. aviser") +
   geom_segment(data = segment_arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
                arrow = arrow(length = unit(0.1, "in")), color = annotate_color) +
   # Annotation of specific speeches
@@ -91,7 +91,7 @@ ggplot(subset(lix, type %in% c("newyear_pm_dk", "newyear_pm_no")),
              arrow = arrow(length = unit(0.1, "in")), curvature = 0.3, color = annotate_color) +
   labs(y = "LIX",
        title ="Hvor nem er statsministeren at forstå?",
-       subtitle = "LIX (LæsbarhedsIndeX) over den danske og norske statsministers nytårstaler, 1985-2020",
+       subtitle = "LIX (LæsbarhedsIndeX) over den danske (og norske) statsministers nytårstaler, 1985-2020",
        caption = "\n@StraubingerDK | Data: github.com/straubinger/lix") +
   theme_minimal() +
   theme(plot.title = element_text(size = 25, face = "bold"),
