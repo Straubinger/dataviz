@@ -105,4 +105,4 @@ ggplot(subset(lix, type %in% c("newyear_pm_dk", "newyear_pm_no")),
         axis.ticks.x = element_line(),
         text = element_text(family = plot_font))
   
-ggsave("lix_pm_plot.png", width = 14, height = 9)
+ggsave("lix_pm_newyear_plot.png", width = 14, height = 9)
