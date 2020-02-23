@@ -3,7 +3,7 @@ library(RCurl)
 library(extrafont)
 
 # Download the fonts Lato and Roboto Mono from https://fonts.google.com/
-# And execute the command below
+# Execute the folllowing command to import the fonts
 # font_import()
 
 # Load data from GitHub
@@ -12,8 +12,9 @@ lix <- read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/m
 
 # Theme elements
 plot_font <- "Lato"
-annotate_color <- "gray35"
-annotate_size <- 2.5
+annotate_color <- "gray32"
+annotate_size <- 3
+pm_size <- 2.5
 
 # Arrows used to annotate LIX scores
 segment_arrows <- tibble(
@@ -49,7 +50,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "New Year"),
   scale_y_continuous(limits = c(15, 45), breaks=seq(15, 45, 10)) +
   scale_x_date(limits = as.Date(c('1985-01-01',NA)), date_breaks = "5 years", date_labels = "%Y") +
   scale_color_manual(values = c("#002883", "#00583c", "#f04d46", "#e3120b", "#acc8d4")) +
-  # Annotations instead of legend
+  # Annotation of country
   annotate("text",
            x = as.Date("2012-01-01"), 
            y = 32, 
@@ -71,7 +72,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "New Year"),
            y = 16.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Schlüter") +
   annotate("text",
@@ -79,7 +80,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "New Year"),
            y = 16.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label="Nyrup") +
   annotate("text", 
@@ -87,7 +88,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "New Year"),
            y = 16.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Fogh") +
   annotate("text", 
@@ -95,7 +96,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "New Year"),
            y = 16.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Løkke") +
   annotate("text", 
@@ -103,7 +104,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "New Year"),
            y = 16.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Thorning") +
   annotate("text", 
@@ -111,7 +112,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "New Year"),
            y = 16.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Løkke") +
   annotate("text", 
@@ -119,7 +120,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "New Year"),
            y = 16.2, 
            hjust = "right",
            color = annotate_color,
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Frederiksen") +
   # Intepretation of LIX scores

@@ -3,7 +3,7 @@ library(RCurl)
 library(extrafont)
 
 # Download the fonts Lato and Roboto Mono from https://fonts.google.com/
-# And execute the command below
+# Execute the following command to import the fonts
 # font_import()
 
 # Load data from GitHub
@@ -12,13 +12,14 @@ lix <- read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/m
 
 # Theme elements
 plot_font <- "Lato"
-annotate_color <- "gray35"
-annotate_size <- 2.2
+annotate_color <- "gray32"
+annotate_size <- 2.5
+pm_size <- 2.2
 
 # Arrows used to annotate LIX scores
 segment_arrows <- tibble(
-  x1 = c(as.Date("1947-01-01"), as.Date("1947-01-01")),
-  x2 = c(as.Date("1947-01-01"), as.Date("1947-01-01")),
+  x1 = c(as.Date("1946-01-01"), as.Date("1946-01-01")),
+  x2 = c(as.Date("1946-01-01"), as.Date("1946-01-01")),
   y1 = c(44, 36),
   y2 = c(48, 32)
 )
@@ -45,7 +46,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
   geom_line(size = 0.5) +
   scale_y_continuous(limits = c(15, 65), breaks=seq(15, 65, 10)) +
   scale_color_manual(values = c("#002883", "#00583c", "#ed008c", "#f04d46", "#e3120b", "#acc8d4")) +
-  # Annotations instead of legend
+  # Annotation of country
   annotate("text",
            x = as.Date("1988-01-01"), 
            y = 40, 
@@ -60,15 +61,14 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            color = "#acc8d4",
            family = plot_font, 
            label = "Sverige") +
-  # Changing format of speech in Denmark
+  # Change of speech format in Denmark
   geom_segment(aes(x = as.Date("1966-05-01"), y = 34, xend = as.Date("1966-05-01"), yend = 63), 
                color = annotate_color, size = 0.3, linetype = "dashed") +
   annotate("text",
-           x = as.Date("1953-01-01"),
+           x = as.Date("1952-01-01"),
            y = 44,
            hjust = "left",
            vjust = "top",
-           color = annotate_color,
            family = plot_font,
            size = annotate_size,
            label = "I 1966 gik den danske åbningstale\nfra at være en saglig redegørelse\nfor det kommende folketingsårs\nlovinitiativer...") +
@@ -77,7 +77,6 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 44,
            hjust = "left",
            vjust = "top",
-           color = annotate_color,
            family = plot_font,
            size = annotate_size,
            label = "... til i højere grad at være\nstatsministerens personlige tale.") +
@@ -89,58 +88,58 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
              arrow = arrow(length = unit(0.05, "in")), curvature = -0.4, color = annotate_color, size = 0.3) +
   annotate("text", 
            x = as.Date("1946-01-01"), 
-           y = 16.8, 
+           y = 19.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Kristensen") +
   annotate("text", 
            x = as.Date("1947-11-13"), 
-           y = 19.2, 
+           y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Hedtoft") +
   annotate("text", 
            x = as.Date("1950-10-30"), 
-           y = 16.8, 
+           y = 19.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Eriksen") +
   annotate("text", 
            x = as.Date("1953-09-30"), 
-           y = 19.2, 
+           y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Hedtoft") +
   annotate("text", 
            x = as.Date("1955-02-01"), 
-           y = 16.8, 
+           y = 19.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "H.C. Hansen") +
   annotate("text", 
            x = as.Date("1960-02-21"), 
-           y = 19.2, 
+           y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Kampmann") +
   annotate("text", 
            x = as.Date("1962-09-03"), 
-           y = 16.8, 
+           y = 19.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Krag") +
   annotate("text", 
@@ -148,7 +147,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Baunsgaard") +
   annotate("text", 
@@ -156,7 +155,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 19.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Krag") +
   annotate("text", 
@@ -164,7 +163,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 19.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Hartling") +
   annotate("text", 
@@ -172,7 +171,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Jørgensen") +
   annotate("text", 
@@ -180,7 +179,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Schlüter") +
   annotate("text",
@@ -188,7 +187,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label="Nyrup") +
   annotate("text", 
@@ -196,7 +195,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Fogh") +
   annotate("text", 
@@ -204,7 +203,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Løkke") +
   annotate("text", 
@@ -212,7 +211,7 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 19.2, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Thorning") +
   annotate("text", 
@@ -220,36 +219,36 @@ ggplot(subset(lix, speaker == "Prime Minister" & occasion == "Opening of Parliam
            y = 16.8, 
            hjust = "left", 
            color = annotate_color, 
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Løkke") +
   annotate("text", 
-           x = as.Date("2012-01-01"),
+           x = as.Date("2012-06-01"),
            y = 22, 
            hjust = "left",
            color = annotate_color,
-           size = annotate_size,
+           size = pm_size,
            family = plot_font,
            label = "Frederiksen") +
   # Intepretation of LIX scores
   geom_segment(data = segment_arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
                arrow = arrow(length = unit(0.08, "in")), color = annotate_color, size = 0.3) +
   annotate("text",
-           x = as.Date("1947-01-01"),
+           x = as.Date("1946-01-01"),
            y = 30,
            color = annotate_color,
            size = annotate_size,
            family = plot_font,
            label = "Nemmere") +
   annotate("text",
-           x = as.Date("1947-01-01"),
+           x = as.Date("1946-01-01"),
            y = 40,
            color = annotate_color,
            size = annotate_size,
            family = plot_font,
            label = "LIX 35-45\nMiddel niveau\nF.eks. aviser") +
   annotate("text",
-           x = as.Date("1947-01-01"),
+           x = as.Date("1946-01-01"),
            y = 50,
            color = annotate_color,
            size = annotate_size,
