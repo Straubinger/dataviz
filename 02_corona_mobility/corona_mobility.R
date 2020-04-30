@@ -37,13 +37,12 @@ google_mobility %>%
   facet_wrap(~ type) +
   theme_minimal() +
   labs(title = "Mobilitet i Danmark under COVID-19",
-       subtitle = "Procentuel difference ift. normal mobilitet i Danmark som opgjort af Google",
+       subtitle = "Procentuel difference i mobilitet ift. median opgjort for perioden 3. januar - 6. februar 2020",
        caption = "@StraubingerDK | Data: Google Community Mobility Reports") +
   theme(plot.title = element_text(face = "bold"),
         legend.position = "none",
-        plot.caption = element_text(color = "#606F7B", size = 8, margin = margin(t = 10)),
+        plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)),
         axis.title = element_blank(),
-        axis.text = element_text(size = 8),
         text = element_text(family = "Roboto"),
         strip.text=element_text(face = "bold", hjust = 0),
         panel.spacing.x = unit(2, "lines"),
@@ -80,14 +79,13 @@ apple_mobility %>%
   scale_y_continuous(labels = scales::percent) +
   facet_wrap(~ transportation_type) +
   labs(title = "Mobilitet i Danmark under COVID-19",
-       subtitle = "Procentuel difference ift. normal mobilitet i Danmark som opgjort af Apple",
+       subtitle = "Procentuel difference i mobilitet ift. den 13. januar 2020",
        caption = "@StraubingerDK | Data: Apple Mobility Trends Reports") +
   theme_minimal() +
   theme(plot.title = element_text(face = "bold"),
         legend.position = "none",
-        plot.caption = element_text(color = "#606F7B", size = 8, margin = margin(t = 10)),
+        plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)),
         axis.title = element_blank(),
-        axis.text = element_text(size = 8),
         text = element_text(family = "Roboto"),
         strip.text=element_text(face = "bold", hjust = 0),
         panel.spacing.x = unit(2, "lines"))
@@ -117,7 +115,7 @@ google_mobility %>%
   scale_x_date(date_labels = "%d. %b") +
   facet_wrap(~ type, ncol = 1) +
   labs(title = "Mobilitet i danske regioner under COVID-19",
-       subtitle = "Procentuel difference ift. normal mobilitet i danske regioner\nsom opgjort af Google",
+       subtitle = "Procentuel difference i mobilitet ift. median\nopgjort for perioden 3. januar - 6. februar 2020",
        caption = "@StraubingerDK | Data: Google Community Mobility Reports") +
   guides(fill = guide_colourbar(barwidth = 15, barheight = 0.5, ticks = FALSE)) +
   theme_minimal() +
