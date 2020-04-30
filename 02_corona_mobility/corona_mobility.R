@@ -41,8 +41,9 @@ google_mobility %>%
        caption = "@StraubingerDK | Data: Google Community Mobility Reports") +
   theme(plot.title = element_text(face = "bold"),
         legend.position = "none",
-        plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)),
+        plot.caption = element_text(color = "#606F7B", size = 8, margin = margin(t = 10)),
         axis.title = element_blank(),
+        axis.text = element_text(size = 8),
         text = element_text(family = "Roboto"),
         strip.text=element_text(face = "bold", hjust = 0),
         panel.spacing.x = unit(2, "lines"),
@@ -84,8 +85,9 @@ apple_mobility %>%
   theme_minimal() +
   theme(plot.title = element_text(face = "bold"),
         legend.position = "none",
-        plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)),
+        plot.caption = element_text(color = "#606F7B", size = 8, margin = margin(t = 10)),
         axis.title = element_blank(),
+        axis.text = element_text(size = 8),
         text = element_text(family = "Roboto"),
         strip.text=element_text(face = "bold", hjust = 0),
         panel.spacing.x = unit(2, "lines"))

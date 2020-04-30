@@ -179,8 +179,9 @@ read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/l
        caption = "\n@StraubingerDK | Data: github.com/straubinger/lix") +
   theme_minimal() +
   theme(plot.title = element_text(face = "bold"),
-        plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
+        plot.caption = element_text(colour = annotate_color, size = 8, margin = margin(t = 10)),
         axis.title = element_blank(),
+        axis.text = element_text(size = 8),
         panel.grid.major.x = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position = "none",
@@ -441,8 +442,9 @@ ggplot(aes(x = date, y = lix, color = factor(country))) +
        caption = "\n@StraubingerDK | Data: github.com/straubinger/lix") +
   theme_minimal() +
   theme(plot.title = element_text(face = "bold"),
-        plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
+        plot.caption = element_text(colour = annotate_color, size = 8, margin = margin(t = 10)),
         axis.title = element_blank(),
+        axis.text = element_text(size = 8),
         panel.grid.major.x = element_blank(),
         panel.grid.minor = element_blank(),
         legend.position = "none",
