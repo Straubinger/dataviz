@@ -44,7 +44,7 @@ ggplot(data=google,aes(x = date, y = pct_diff)) +
         axis.title = element_blank(),
         text = element_text(family = "Roboto"),
         strip.text=element_text(face = "bold", hjust = 0),
-        panel.spacing.x = unit(2, "lines"),
+        panel.spacing.x = unit(1, "lines"),
         panel.spacing.y = unit(1, "lines"))
 
 ggsave(width = 9, height = 5, "plot_google_mobility.png")
@@ -83,7 +83,7 @@ ggplot(data=apple, aes(x = date, y = index)) +
         axis.title = element_blank(),
         text = element_text(family = "Roboto"),
         strip.text=element_text(face = "bold", hjust = 0),
-        panel.spacing.x = unit(2, "lines"))
+        panel.spacing.x = unit(1, "lines"))
 
 ggsave(width = 9, height = 5, "plot_apple_mobility.png")
 
