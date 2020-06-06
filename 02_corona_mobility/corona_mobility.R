@@ -15,7 +15,7 @@ theme_set(theme_minimal())
 # Google Community Mobility Reports, Denmark ------------------------------
 
 google <- google_mobility %>% 
-  filter(country_region == "Denmark", is.na(sub_region_1)) %>% 
+  filter(country_region == "Denmark", is.na(sub_region_1), type != "parks") %>% 
   mutate(type = tools::toTitleCase(type),
          date = as.Date(date),
          pct_diff = pct_diff/100)
@@ -91,7 +91,7 @@ ggsave(width = 9, height = 5, "plot_apple_mobility.png")
 # Google Community Mobility Reports, Danish regions -----------------------
 
 google_regions <- google_mobility %>% 
-  filter(country_region == "Denmark", !is.na(sub_region_1)) %>% 
+  filter(country_region == "Denmark", !is.na(sub_region_1), type != "parks") %>% 
   mutate(type = tools::toTitleCase(type),
          date = as.Date(date),
          pct_diff = pct_diff/100,
