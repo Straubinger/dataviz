@@ -1,6 +1,6 @@
 # The Google and Apple mobility data is importet from the covdata package by Kieran Healy
 # Vignette: https://kjhealy.github.io/covdata/index.html
-# remotes::install_github("kjhealy/covdata")
+remotes::install_github("kjhealy/covdata")
 
 # The plots use the font Roboto, download the font from https://fonts.google.com/
 # After installation of the font execute this command to import the font: font_import()
@@ -130,6 +130,6 @@ ggplot(data=google_regions, aes(x = date, y = sub_region_1, fill = pct_diff)) +
         text = element_text(family = "Roboto"),
         strip.text=element_text(hjust = 0, face = "bold"),
         panel.spacing.x = unit(1, "lines"))
-  
+
 ggsave(width = 6, height = 9, "plot_google_mobility_regions.png")
 
