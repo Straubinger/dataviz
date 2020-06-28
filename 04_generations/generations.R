@@ -46,7 +46,7 @@ p <- FOLK3 %>%
              arrow = arrow(length = unit(0.08, "in")), curvature = -0.3, color = annotate_color, size = 0.3) +
   labs(title = "De syv generationer",
        subtitle = "Antal personer i Danmark fordelt på fødselsår pr. 1. januar 2020",
-       caption = "@StraubingerDK | Data: Danmarks Statistik, FOLK3 table") +
+       caption = "@StraubingerDK | Data: Danmarks Statistik, FOLK3 tabel") +
   theme_minimal() +
   theme(plot.title = element_text(face = "bold"),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
