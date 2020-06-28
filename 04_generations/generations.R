@@ -62,13 +62,13 @@ p <- FOLK3 %>%
 # Data to annotations -----------------------------------------------------
 
 y_ann_gen <- 95000
-y_ann_pct <- y_ann_gen-5000
+y_ann_pct <- y_ann_gen-4000
 
 ann_data <- FOLK3 %>% 
   group_by(generation) %>% 
   summarise(people = sum(INDHOLD)) %>% 
   ungroup() %>% 
-  mutate(pct = scales::percent(people/sum(people), accuracy = 0.5))
+  mutate(pct = scales::percent(people/sum(people), accuracy = 0.5, big.mark = ".", decimal.mark = ","))
 
 for (i in unique(ann_data$generation)) {
   ann <- ann_data %>% 
@@ -91,37 +91,37 @@ p +
            color = annotate_color, family = plot_font, size = annotate_size, fontface = "bold",
            label = `gen_Silent Generation`) +
   annotate("text", x = 1937, y = y_ann_pct,
-           color = annotate_color, family = plot_font, size = annotate_size,
+           color = annotate_color, family = plot_font, size = annotate_size, vjust = "top",
            label = `pct_Silent Generation`) +
   annotate("text", x = 1955, y = y_ann_gen,
            color = annotate_color, family = plot_font, size = annotate_size, fontface = "bold",
            label = gen_Boomers) +
   annotate("text", x = 1955, y = y_ann_pct,
-           color = annotate_color, family = plot_font, size = annotate_size,
+           color = annotate_color, family = plot_font, size = annotate_size, vjust = "top",
            label = pct_Boomers) +
   annotate("text", x = 1973, y = y_ann_gen,
            color = annotate_color, family = plot_font, size = annotate_size, fontface = "bold",
            label = `gen_Generation X`) +
   annotate("text", x = 1973, y = y_ann_pct,
-           color = annotate_color, family = plot_font, size = annotate_size,
+           color = annotate_color, family = plot_font, size = annotate_size, vjust = "top",
            label = `pct_Generation X`) +
   annotate("text", x = 1988, y = y_ann_gen,
            color = annotate_color, family = plot_font, size = annotate_size, fontface = "bold",
            label = gen_Millennials) +
   annotate("text", x = 1988, y = y_ann_pct,
-           color = annotate_color, family = plot_font, size = annotate_size,
+           color = annotate_color, family = plot_font, size = annotate_size, vjust = "top",
            label = pct_Millennials) +
   annotate("text", x = 2003, y = y_ann_gen,
            color = annotate_color, family = plot_font, size = annotate_size, fontface = "bold",
            label = `gen_Generation Z`) +
   annotate("text", x = 2003, y = y_ann_pct,
-           color = annotate_color, family = plot_font, size = annotate_size,
+           color = annotate_color, family = plot_font, size = annotate_size, vjust = "top",
            label = `pct_Generation Z`) +
   annotate("text", x = 2017, y = y_ann_gen,
            color = annotate_color, family = plot_font, size = annotate_size, fontface = "bold",
            label = `gen_Generation Alpha`) +
   annotate("text", x = 2017, y = y_ann_pct,
-           color = annotate_color, family = plot_font, size = annotate_size,
+           color = annotate_color, family = plot_font, size = annotate_size, vjust = "top",
            label = `pct_Generation Alpha`) +
   annotate("text", x = 1924, y = 18000,
            color = annotate_color, family = plot_font, size = annotate_size,
