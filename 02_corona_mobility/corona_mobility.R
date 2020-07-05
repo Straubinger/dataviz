@@ -12,6 +12,12 @@ library(ggtext)
 
 theme_set(theme_minimal())
 
+# Plot size
+aspect_ratio = 16/9
+height = 5
+width  = round(aspect_ratio*height)
+
+
 # Google Community Mobility Reports, Denmark ------------------------------
 
 google <- google_mobility %>% 
@@ -29,7 +35,7 @@ ggplot(data=google,aes(x = date, y = pct_diff)) +
   geom_vline(xintercept = as.Date("2020-04-06"), size = 0.4, linetype = "dashed", color = "#1F9D55") +
   geom_vline(xintercept = as.Date("2020-05-07"), size = 0.4, linetype = "dashed", color = "#1F9D55") +
   geom_vline(xintercept = as.Date("2020-05-20"), size = 0.4, linetype = "dashed", color = "#1F9D55") +
-  scale_x_date(date_labels = "%d. %b") +
+  scale_x_date(date_labels = "%b") +
   scale_y_continuous(labels = scales::percent) +
   facet_wrap(~ type) +
   labs(title = "Mobilitet i Danmark under COVID-19",
@@ -47,7 +53,7 @@ ggplot(data=google,aes(x = date, y = pct_diff)) +
         panel.spacing.x = unit(1, "lines"),
         panel.spacing.y = unit(1, "lines"))
 
-ggsave(width = 9, height = 5, "plot_google_mobility.png")
+ggsave(width = width, height = height, "plot_google_mobility.png")
 
 
 # Apple Mobility Trends Reports, Denmark ----------------------------------
@@ -67,7 +73,7 @@ ggplot(data=apple, aes(x = date, y = index)) +
   geom_vline(xintercept = as.Date("2020-04-06"), size = 0.4, linetype = "dashed", color = "#1F9D55") +
   geom_vline(xintercept = as.Date("2020-05-07"), size = 0.4, linetype = "dashed", color = "#1F9D55") +
   geom_vline(xintercept = as.Date("2020-05-20"), size = 0.4, linetype = "dashed", color = "#1F9D55") +
-  scale_x_date(date_labels = "%d. %b") +
+  scale_x_date(date_labels = "%b") +
   scale_y_continuous(labels = scales::percent) +
   facet_wrap(~ transportation_type) +
   labs(title = "Mobilitet i Danmark under COVID-19",
@@ -85,7 +91,7 @@ ggplot(data=apple, aes(x = date, y = index)) +
         strip.text=element_text(face = "bold", hjust = 0),
         panel.spacing.x = unit(1, "lines"))
 
-ggsave(width = 9, height = 5, "plot_apple_mobility.png")
+ggsave(width = width, height = height, "plot_apple_mobility.png")
 
 
 # Google Community Mobility Reports, Danish regions -----------------------
@@ -111,7 +117,7 @@ ggplot(data=google_regions, aes(x = date, y = sub_region_1, fill = pct_diff)) +
   geom_vline(xintercept = as.Date("2020-05-07"), size = 0.4, linetype = "dashed", color = "#1F9D55") +
   geom_vline(xintercept = as.Date("2020-05-20"), size = 0.4, linetype = "dashed", color = "#1F9D55") +
   scale_fill_gradient2(low = "#CC1F1A", high = "#2779BD",labels = scales::percent) +
-  scale_x_date(date_labels = "%d. %b") +
+  scale_x_date(date_labels = "%b") +
   facet_wrap(~ type, ncol = 1) +
   labs(title = "Mobilitet i danske regioner under COVID-19",
        subtitle = paste("Procentuel difference i mobilitet ift. median opgjort for perioden 3. januar<br/>til 6. februar 2020.
@@ -130,6 +136,5 @@ ggplot(data=google_regions, aes(x = date, y = sub_region_1, fill = pct_diff)) +
         text = element_text(family = "Roboto"),
         strip.text=element_text(hjust = 0, face = "bold"),
         panel.spacing.x = unit(1, "lines"))
-
+  
 ggsave(width = 6, height = 9, "plot_google_mobility_regions.png")
-

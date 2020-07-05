@@ -10,6 +10,12 @@ plot_font <- "Roboto"
 annotate_color <- "#606F7B"
 annotate_size <- 2.3
 pm_size <- 2.3
+theme_set(theme_minimal())
+
+# Plot size
+aspect_ratio = 16/9
+height = 5
+width  = round(aspect_ratio*height)
 
 
 # LIX of New Year Addresses by DK and NO PM -------------------------------
@@ -177,7 +183,6 @@ read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/l
   labs(title ="Hvor nem er statsministeren at forstå til nytår?",
        subtitle = "LIX (LæsbarhedsIndeX) over den danske og norske statsministers nytårstaler",
        caption = "\n@StraubingerDK | Data: github.com/straubinger/lix") +
-  theme_minimal() +
   theme(plot.title = element_text(face = "bold"),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
         axis.title = element_blank(),
@@ -187,7 +192,7 @@ read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/l
         axis.ticks.x = element_line(),
         text = element_text(family = plot_font))
 
-ggsave("plot_lix_pm_newyear.png", width = 8, height = 4)
+ggsave("plot_lix_pm_newyear.png", width = width, height = height)
 
 
 # LIX of Opening of Parliament speeches -----------------------------------
@@ -439,7 +444,6 @@ ggplot(aes(x = date, y = lix, color = factor(country))) +
   labs(title ="Hvor nem er statsministeren at forstå ved parlamentets åbning?",
        subtitle = "LIX (LæsbarhedsIndeX) over den danske og svenske statsministers tale ved parlamentets åbning",
        caption = "\n@StraubingerDK | Data: github.com/straubinger/lix") +
-  theme_minimal() +
   theme(plot.title = element_text(face = "bold"),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
         axis.title = element_blank(),
@@ -449,5 +453,5 @@ ggplot(aes(x = date, y = lix, color = factor(country))) +
         axis.ticks.x = element_line(),
         text = element_text(family = plot_font))
 
-ggsave("plot_lix_pm_openparl.png", width = 8, height = 4)
+ggsave("plot_lix_pm_openparl.png", width = width, height = height)
 

@@ -12,6 +12,12 @@ library(statsDK)
 plot_font <- "Roboto"
 annotate_color <- "#606F7B"
 annotate_size <- 2.5
+theme_set(theme_minimal())
+
+# Plot size
+aspect_ratio = 16/9
+height = 5
+width  = round(aspect_ratio*height)
 
 
 # Retrives data from Statistics Denmark -----------------------------------
@@ -47,7 +53,6 @@ p <- FOLK3 %>%
   labs(title = "De syv generationer",
        subtitle = "Antal personer i Danmark fordelt på fødselsår pr. 1. januar 2020",
        caption = "@StraubingerDK | Data: Danmarks Statistik, FOLK3 tabel") +
-  theme_minimal() +
   theme(plot.title = element_text(face = "bold"),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
         axis.title = element_blank(),
@@ -127,5 +132,5 @@ p +
            color = annotate_color, family = plot_font, size = annotate_size,
            label = "Alle født før og i 1920\ner grupperet sammen")
 
-ggsave("plot_generations.png", width = 10, height = 5)
+ggsave("plot_generations.png", width = width, height = height)
 
