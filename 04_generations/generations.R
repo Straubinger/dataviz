@@ -11,12 +11,12 @@ library(statsDK)
 # Theme elements for plots
 plot_font <- "Roboto"
 annotate_color <- "#606F7B"
-annotate_size <- 2.5
+annotate_size <- 3
 theme_set(theme_minimal())
 
 # Plot size
 aspect_ratio = 16/9
-height = 5
+height = 6
 width  = round(aspect_ratio*height)
 
 
@@ -132,5 +132,5 @@ p +
            color = annotate_color, family = plot_font, size = annotate_size,
            label = "Alle født før og i 1920\ner grupperet sammen")
 
-ggsave("plot_generations.png", width = width, height = height)
+ggsave("plot_generations.png", width = width, height = height, type = "cairo-png")
 
