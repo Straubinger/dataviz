@@ -175,7 +175,8 @@ ggplot(cph_pop, aes(x = year, y = people)) +
   labs(title = "Hvor bor folk i København?",
        subtitle = "Befolkningsudvikling i Københavns Kommunes bydele, 1991-2035 ('000 personer)",
        caption = "@StraubingerDK | Data: Københavns Kommunes Statistikbank, tabel Be4.3 og Be62") +
-  theme(plot.title = element_text(face = "bold"),
+  theme(plot.title = element_text(face = "bold", size = 16),
+        plot.subtitle = element_text(size = 12),
         plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
@@ -220,7 +221,8 @@ ggplot(cph_income, aes(x = year, y = income_avg)) +
   labs(title = "Hvor findes pengene i København?",
        subtitle = "Gnstl. disponibel indkomst i Københavns Kommunes bydele, 2000-2017 ('000 kr.)",
        caption = "@StraubingerDK | Data: Københavns Kommunes Statistikbank, tabel In74") +
-  theme(plot.title = element_text(face = "bold"),
+  theme(plot.title = element_text(face = "bold", size = 16),
+        plot.subtitle = element_text(size = 12),
         plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),

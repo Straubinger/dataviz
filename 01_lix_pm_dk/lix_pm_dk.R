@@ -184,7 +184,8 @@ read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/l
   labs(title ="Hvor nem er statsministeren at forstå til nytår?",
        subtitle = "LIX (LæsbarhedsIndeX) over den danske og norske statsministers nytårstaler",
        caption = "\n@StraubingerDK | Data: github.com/straubinger/lix") +
-  theme(plot.title = element_text(face = "bold"),
+  theme(plot.title = element_text(face = "bold", size = 16),
+        plot.subtitle = element_text(size = 12),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
         axis.title = element_blank(),
         panel.grid.major.x = element_blank(),
@@ -446,7 +447,8 @@ ggplot(aes(x = date, y = lix, color = factor(country))) +
   labs(title ="Hvor nem er statsministeren at forstå ved parlamentets åbning?",
        subtitle = "LIX (LæsbarhedsIndeX) over den danske og svenske statsministers tale ved parlamentets åbning",
        caption = "\n@StraubingerDK | Data: github.com/straubinger/lix") +
-  theme(plot.title = element_text(face = "bold"),
+  theme(plot.title = element_text(face = "bold", size = 16),
+        plot.subtitle = element_text(size = 12),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
         axis.title = element_blank(),
         panel.grid.major.x = element_blank(),
