@@ -8,8 +8,8 @@ library(extrafont)
 # Theme elements for plots
 plot_font <- "Roboto"
 annotate_color <- "#606F7B"
-annotate_size <- 2.5
-pm_size <- 2.5
+annotate_size <- 2.8
+pm_size <- 2.8
 theme_set(theme_minimal())
 
 # Plot size
