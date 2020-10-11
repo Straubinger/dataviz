@@ -8,13 +8,13 @@ library(extrafont)
 # Theme elements for plots
 plot_font <- "Roboto"
 annotate_color <- "#606F7B"
-annotate_size <- 2.5
-pm_size <- 2.5
+annotate_size <- 2.3
+pm_size <- 2.3
 theme_set(theme_minimal())
 
 # Plot size
 aspect_ratio = 16/9
-height = 6
+height = 5
 width  = round(aspect_ratio*height)
 
 
@@ -51,9 +51,8 @@ read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/l
   mutate(date = as.Date(date)) %>% 
   filter(speaker == "Prime Minister" & occasion == "New Year") %>% 
   ggplot(aes(x = date, y = lix, color = factor(country))) +
-  geom_line(size = 0.5) +
-  geom_point(color = "white", stroke = 2) +
   geom_point(size = 1.3) +
+  geom_line(size = 0.5) +
   scale_y_continuous(limits = c(15, 45), breaks=seq(15, 45, 10)) +
   scale_x_date(limits = as.Date(c('1985-01-01',NA)), date_breaks = "5 years", date_labels = "%Y") +
   scale_color_manual(values = c("#002883", "#00583c", "#f04d46", "#e3120b", "#acc8d4")) +
@@ -193,7 +192,7 @@ read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/l
         axis.ticks.x = element_line(),
         text = element_text(family = plot_font))
 
-ggsave("plot_lix_pm_newyear.png", width = width, height = height, type = "cairo-png")
+ggsave("plot_lix_pm_newyear.png", width = width, height = height)
 
 
 # LIX of Opening of Parliament speeches -----------------------------------
@@ -215,7 +214,7 @@ segment_pm <- tibble(
    x2 = c(as.Date("1947-11-13")-30, as.Date("1950-10-30")-30, as.Date("1953-09-30")-30, as.Date("1955-02-01")-30, as.Date("1960-02-21")-30, 
           as.Date("1962-09-03")-30, as.Date("1968-02-02")-30, as.Date("1971-10-11")-30, as.Date("1972-10-05")-30, as.Date("1973-12-19")-30, 
           as.Date("1975-02-13")-30, as.Date("1982-09-10")-30, as.Date("1993-01-25")-30, as.Date("2001-11-27")-30, as.Date("2009-04-05")-30, 
-          as.Date("2011-10-03")-30, as.Date("2015-06-28")-30, as.Date("2019-06-27")-30, as.Date("2021-01-01")),
+          as.Date("2011-10-03")-30, as.Date("2015-06-28")-30, as.Date("2019-06-27")-30, as.Date("2020-01-01")),
   y1 = c(18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18),
   y2 = c(18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18),
   col = c("#002883", "#f04d46", "#002883", "#f04d46", "#f04d46", "#f04d46", "#f04d46", "#ed008c", "#f04d46", "#f04d46", "#002883", 
@@ -227,9 +226,8 @@ read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/l
   filter(speaker == "Prime Minister" & occasion == "Opening of Parliament" &
            country %in% c("Denmark", "Sweden")) %>% 
 ggplot(aes(x = date, y = lix, color = factor(country))) +
-  geom_line(size = 0.5) +
-  geom_point(color = "white", stroke = 1.5) +
   geom_point(size = 1.3) +
+  geom_line(size = 0.5) +
   scale_y_continuous(limits = c(15, 65), breaks=seq(15, 65, 10)) +
   scale_color_manual(values = c("#002883", "#00583c", "#ed008c", "#f04d46", "#e3120b", "#acc8d4")) +
   # Annotation of country
@@ -272,7 +270,7 @@ ggplot(aes(x = date, y = lix, color = factor(country))) +
              curvature = -0.3, color = annotate_color, size = 0.3) +
   geom_curve(aes(x = as.Date("1973-08-01"), y = 17.5, xend = as.Date("1976-01-01"), yend = 17.5),
              curvature = 0.4, color = annotate_color, size = 0.3) +
-  geom_curve(aes(x = as.Date("2017-09-01"), y = 22, xend = as.Date("2020-06-01"), yend = 19),
+  geom_curve(aes(x = as.Date("2017-09-01"), y = 22, xend = as.Date("2019-08-01"), yend = 19),
              arrow = arrow(length = unit(0.05, "in")), curvature = -0.4, color = annotate_color, size = 0.3) +
   annotate("text", 
            x = as.Date("1946-01-01"), 
@@ -455,5 +453,5 @@ ggplot(aes(x = date, y = lix, color = factor(country))) +
         axis.ticks.x = element_line(),
         text = element_text(family = plot_font))
 
-ggsave("plot_lix_pm_openparl.png", width = width, height = height, type = "cairo-png")
+ggsave("plot_lix_pm_openparl.png", width = width, height = height)
 
