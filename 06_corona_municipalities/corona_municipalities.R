@@ -14,7 +14,7 @@ theme_set(theme_minimal())
 
 # Import data from SSI ----------------------------------------------------
 
-data_date <- as.Date('2020-11-18')
+data_date <- as.Date('2020-11-19')
 
 url <- "https://covid19.ssi.dk/overvagningsdata/download-fil-med-overvaagningdata"
 
