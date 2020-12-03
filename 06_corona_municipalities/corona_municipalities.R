@@ -131,8 +131,8 @@ ggplot(aes(x = date_incidens, y = incidens)) +
   geom_ribbon(aes(ymin = incidens, ymax = pmin(incidens, incidens_dk), fill = "Over DK-niveau", alpha = 0.05)) +
   geom_ribbon(aes(ymin = incidens_dk, ymax = pmin(incidens_dk, incidens), fill = "Under DK-niveau", alpha = 0.05)) +
   facet_wrap(~ municipality, ncol = 6) +
-  scale_x_date(date_labels = "%d/%m", date_breaks = "months") +
-  scale_y_continuous(breaks = seq(0, 400, by = 200), limits = c(NA, 550)) +
+  scale_x_date(date_labels = "%b", date_breaks = "months") +
+  scale_y_continuous(breaks = seq(0, 400, by = 400), limits = c(NA, 550)) +
   scale_fill_manual(values=c("Over DK-niveau" = "#ff7a69", "Under DK-niveau" = "#559fff")) +
   scale_linetype_manual(breaks=c("Kommune","Hele DK"), values=c(1,2)) +
   guides(alpha = FALSE) +
@@ -143,7 +143,6 @@ ggplot(aes(x = date_incidens, y = incidens)) +
         axis.text = element_text(size = 8),
         panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
-        panel.grid.minor.y = element_blank(),
         strip.text=element_text(hjust = 0),
         legend.title = element_blank(),
         legend.position = "bottom",
