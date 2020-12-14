@@ -44,7 +44,7 @@ classifications <- dl_csv %>%
 
 # Import data from SSI ----------------------------------------------------
 
-data_date <- as.Date('2020-12-03')
+data_date <- as.Date('2020-12-14')
 
 url <- "https://covid19.ssi.dk/overvagningsdata/download-fil-med-overvaagningdata"
 
@@ -68,6 +68,7 @@ bef <- read.csv2(here("Municipality_test_pos.csv"), header=T, encoding = "UTF-8"
 
 cases <- read.csv2(here("Municipality_cases_time_series.csv"), header=T, encoding = "UTF-8") %>% 
   pivot_longer(!date_sample, names_to = "municipality", values_to = "cases") %>% 
+  filter(municipality != "NA.") %>% 
   mutate(date_sample = as.Date(date_sample),
          municipality = case_when(municipality == "Copenhagen" ~ "København",
                                   municipality == "Faaborg.Midtfyn" ~ "Faaborg-Midtfyn",
@@ -96,7 +97,7 @@ cases <- read.csv2(here("Municipality_cases_time_series.csv"), header=T, encodin
             by = c("date_sample" = "date", "municipality")) %>% 
   mutate(positive_rate = cases/tests,
          positive_rate = replace_na(positive_rate, 0)) %>% 
-  filter(date_incidens >= "2020-09-01" & date_sample < as.Date(data_date)-2)
+  filter(between(date_incidens, as.Date("2020-09-01"), as.Date("2020-11-30")))
 
 cases_plot <- cases %>% 
   full_join(cases %>% 
@@ -214,51 +215,4 @@ heatmap_corona(region_valg = "Region Hovedstaden") +
         text=element_text(family="Roboto"))
 
 ggsave(width = 8, height = 14, here("plot_corona_heat.png"), type = "cairo-png", dpi = 600)
-
-
-# Status and change of incidens scatterplot -------------------------------
-
-cases_scatterplot <- cases %>%
-  filter(date_incidens == '2020-12-01	' | date_incidens == '2020-11-24') %>% 
-  select(date_incidens, municipality, incidens, bef) %>% 
-  pivot_wider(names_from = date_incidens, values_from = incidens) %>% 
-  rename(date1 = `2020-11-24`,
-         date2 = `2020-12-01`) %>% 
-  mutate(diff = (date2-date1)/date1,
-         tema = case_when(municipality %in% c("Vallensbæk", "Rødovre", "Ishøj", "Høje-Taastrup", "Hvidovre",
-                                              "Glostrup", "Brøndby", "Albertslund", "Ballerup", "Dragør",
-                                              "Frederiksberg", "Gentofte", "Gladsaxe", "Herlev", "København", 
-                                              "Lyngby-Taarbæk", "Tårnby") ~  "kbh",
-                          municipality %in% c("Thisted", "Jammerbugt", "Hjørring", "Frederikshavn", "Læsø",
-                                              "Brønderslev", "Vesthimmerlands") ~ "nordjysk",
-                          TRUE ~ "resten")) %>% 
-  filter(is.finite(diff))
-
-ggplot(cases_scatterplot, aes(x = date2, y = diff, color = tema, alpha = 0.8)) +
-  geom_point(aes(size = bef)) +
-  geom_hline(yintercept = 0) +
-  geom_text_repel(aes(label = ifelse(diff >= 1 | date2 > 300 | date2 == 0, as.character(municipality), "")), 
-                  color = "black", family = "Roboto", size = 3.5) +
-  annotate("text", x = 270, y = -0.2, color = "#e45858", family = "Roboto", label = "Københavnsområdet") +
-  annotate("text", x = 40, y = -0.9, color = "#6246ea", family = "Roboto", label = "Nordjyske kommuner") +
-  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
-  scale_color_manual(values = c("resten" = "gray", "kbh" = "red", "nordjysk" = "blue")) +
-  labs(title = "Status for COVID-19 incidens og seneste udvikling i danske kommuner",
-       subtitle = "Incidens defineres som tilfælde af COVID-19 seneste 7 dage pr. 100.000 indbyggere. Cirklernes størrelse indikerer befolkningsstørrelse.",
-       x = "Incidens den 1. december",
-       y = "Incidens diff. ml. d. 24. nov. og 1. dec.",
-       caption = "@Straubinger | Data: SSI") +
-  theme(plot.title = element_text(face = "bold", size = 16),
-        plot.subtitle = element_text(size = 12),
-        plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)),
-        axis.title.x = element_text(color = "gray25", margin = margin(t = 8)),
-        axis.title.y = element_text(color = "gray25", margin = margin(r = 8)),
-        legend.position = "none",
-        panel.grid.minor = element_blank(),
-        text = element_text(family = "Roboto"))
-
-ggsave(width = width, height = height, here("plot_corona_scatter.png"), type = "cairo-png", dpi = 600)
-  
-
-
 
