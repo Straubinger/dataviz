@@ -41,7 +41,7 @@ segment_pm <- tibble(
   x1 = c(as.Date("1985-01-01"), as.Date("1993-01-25"), as.Date("2001-11-27"), as.Date("2009-04-05"), 
          as.Date("2011-10-03"), as.Date("2015-06-28"), as.Date("2019-06-27")),
   x2 = c(as.Date("1993-01-25")-30, as.Date("2001-11-27")-30, as.Date("2009-04-05")-30, as.Date("2011-10-03")-30,
-         as.Date("2015-06-28")-30, as.Date("2019-06-27")-30, as.Date("2020-01-01")),
+         as.Date("2015-06-28")-30, as.Date("2019-06-27")-30, as.Date("2021-01-01")),
   y1 = c(17, 17, 17, 17, 17, 17, 17),
   y2 = c(17, 17, 17, 17, 17, 17, 17),
   col = c("#00583c", "#f04d46", "#002883", "#002883", "#f04d46", "#002883", "#f04d46")
@@ -165,7 +165,7 @@ read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/l
   geom_curve(data = curve_arrows, aes(x = x1, y = y1, xend = x2, yend = y2),
              arrow = arrow(length = unit(0.08, "in")), curvature = 0.3, color = annotate_color, size = 0.3) +
   annotate("text",
-           x = as.Date("2010-01-01"),
+           x = as.Date("2010-04-01"),
            y = 21,
            family = plot_font,
            size = annotate_size,
@@ -177,7 +177,7 @@ read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/l
            size = annotate_size,
            label = "Foghs opgør med\nsmagsdommerne i 2002\nLIX på 36") +
   annotate("text",
-           x = as.Date("2003-01-01"),
+           x = as.Date("2003-04-01"),
            y = 27, family = plot_font, 
            size = annotate_size,
            label = "Løkkes opgør med\nefterlønnen i 2011\nLIX på 30") +
