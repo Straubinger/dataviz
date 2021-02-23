@@ -1,5 +1,4 @@
 library(tidyverse)
-library(RCurl)
 library(extrafont)
 
 # The plots use the font Roboto, download the font from https://fonts.google.com/
@@ -47,7 +46,7 @@ segment_pm <- tibble(
   col = c("#00583c", "#f04d46", "#002883", "#002883", "#f04d46", "#002883", "#f04d46")
 )
 
-read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")) %>% 
+read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")) %>% 
   mutate(date = as.Date(date)) %>% 
   filter(speaker == "Prime Minister" & occasion == "New Year") %>% 
   ggplot(aes(x = date, y = lix, color = factor(country))) +
@@ -223,7 +222,7 @@ segment_pm <- tibble(
           "#f04d46", "#00583c", "#f04d46", "#002883", "#002883", "#f04d46", "#002883", "#f04d46")
 )
 
-read.csv(text=getURL("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")) %>% 
+read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")) %>% 
   mutate(date = as.Date(date)) %>% 
   filter(speaker == "Prime Minister" & occasion == "Opening of Parliament" &
            country %in% c("Denmark", "Sweden")) %>% 
