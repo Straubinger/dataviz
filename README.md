@@ -11,3 +11,4 @@ Data visualizations made with R and <a href="https://ggplot2.tidyverse.org/">ggp
 | 04_generations | Number and share of people in each generation in Denmark | <a href="https://www.statbank.dk/statbank5a/default.asp?w=1920">Statistics Denmark, FOLK3 table</a> |
 | 05_cph_districts | Population and disposable income in the 10 districts of Copenhagen | <a href="https://statistikbanken.kk.dk/">Statistics City of Copenhagen</a> |
 | 06_corona_municipalities | Cases of COVID-19 in the Danish municipalities | <a href="https://covid19.ssi.dk/overvagningsdata/download-fil-med-overvaagningdata">SSI</a> |
+| 07_corona_deaths | Number of COVID-19 deaths in the EU | <a href="https://github.com/owid/covid-19-data/tree/master/public/data">Our World in Data</a> |
