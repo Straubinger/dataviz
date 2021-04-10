@@ -1,4 +1,4 @@
-# Inspired by a graphic by the NY Times: https://twitter.com/nytimes/status/1363498989652426754?s=19
+# Inspired by a graphic by the New York Times: https://www.nytimes.com/2021/02/21/insider/covid-500k-front-page.html
 
 Sys.setlocale("LC_TIME", "English")
 
