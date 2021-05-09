@@ -67,12 +67,12 @@ ggplot(eu_deaths_plot, aes(x = location, y = date_numeric)) +
                                format(max(eu_deaths$total_deaths), big.mark = ","), "\ndeaths"),
                 family = "Roboto"), color = plot_col, hjust=0, vjust = 1) +
   geom_text(aes(x = 1.02, y = min(date_numeric), label = paste0(format(as.Date(min(date)), '%b %d %Y'), 
-                                                        "\nfirst report of an EU death, in France"), 
+                                                                "\nfirst report of an EU death, in France"), 
                 family = "Roboto"), color = plot_col, hjust=0) +
   scale_y_continuous(trans = "reverse") +
   labs(title = "The EU surpasses Half a Million Covid Deaths",
        subtitle = "Each dot represents one death from Covid-19 in the EU",
-       caption = "@StraubingerDK | Data: Our World in Data") +
+       caption = "Simon Straubinger (@StraubingerDK) | Source: Our World in Data") +
   theme_void() +
   theme(axis.title = element_blank(),
         plot.title = element_text(size = 18, face = "bold", hjust = 0.5),

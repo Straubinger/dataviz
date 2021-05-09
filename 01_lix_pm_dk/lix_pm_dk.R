@@ -122,7 +122,7 @@ read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")
            family = plot_font,
            label = "Løkke") +
   annotate("text", 
-           x = as.Date("2020-01-01"),
+           x = as.Date("2021-01-01"),
            y = 16.2, 
            hjust = "right",
            color = annotate_color,
@@ -182,7 +182,7 @@ read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")
            label = "Løkkes opgør med\nefterlønnen i 2011\nLIX på 30") +
   labs(title ="Hvor nem er statsministeren at forstå til nytår?",
        subtitle = "LIX (LæsbarhedsIndeX) over den danske og norske statsministers nytårstaler",
-       caption = "\n@StraubingerDK | Data: github.com/straubinger/lix") +
+       caption = "\nSimon Straubinger (@StraubingerDK) | Kilde: github.com/straubinger/lix") +
   theme(plot.title = element_text(face = "bold", size = 16),
         plot.subtitle = element_text(size = 12),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
@@ -445,7 +445,7 @@ ggplot(aes(x = date, y = lix, color = factor(country))) +
            label = "Frederiksen 2019\nLaveste LIX på 28") +
   labs(title ="Hvor nem er statsministeren at forstå ved parlamentets åbning?",
        subtitle = "LIX (LæsbarhedsIndeX) over den danske og svenske statsministers tale ved parlamentets åbning",
-       caption = "\n@StraubingerDK | Data: github.com/straubinger/lix") +
+       caption = "\n@Simon Straubinger (StraubingerDK) | Kilde: github.com/straubinger/lix") +
   theme(plot.title = element_text(face = "bold", size = 16),
         plot.subtitle = element_text(size = 12),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),

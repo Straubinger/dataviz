@@ -162,7 +162,7 @@ lineplot_corona(region_valg = "Region Hovedstaden") +
     theme(axis.ticks.x = element_line(color = "#606F7B")) +
   plot_annotation(title = "Udvikling i COVID-19 incidens i efteråret 2020",
                   subtitle = "Incidens defineres som tilfælde COVID-19 de seneste 7 dage pr. 100.000 indbyggere",
-                  caption = "@StraubingerDK | Data: SSI",
+                  caption = "Simon Straubinger (@StraubingerDK) | Kilde: SSI",
                   theme = theme(plot.title = element_text(face = "bold", size = 16),
                                 plot.subtitle = element_text(size = 12),
                                 plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)))) +
@@ -206,7 +206,7 @@ heatmap_corona(region_valg = "Region Hovedstaden") +
   theme(axis.ticks.x = element_line(color = "#606F7B")) +
   plot_annotation(title = "Udvikling i COVID-19 incidens i efteråret 2020",
                       subtitle = "Incidens defineres som tilfælde COVID-19 de seneste 7 dage pr. 100.000 indbyggere",
-                      caption = "@StraubingerDK | Data: SSI",
+                      caption = "Simon Straubinger (@StraubingerDK) | Kilde: SSI",
                       theme = theme(plot.title = element_text(face = "bold", size = 16),
                                     plot.subtitle = element_text(size = 12),
                                     plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)))) +

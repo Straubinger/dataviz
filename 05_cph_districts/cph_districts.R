@@ -153,6 +153,7 @@ ann_pct <- data.frame(x = 1996, y = 105000, code = c("7"), label = c("Befolkning
 segm_pct1 <- data.frame(x = 2001, xend = 2012, y = 83000, yend = 60000, code = c("7"))
 segm_pct2 <- data.frame(x = 2021, xend = 2030, y = 95000, yend = 73000, code = c("7"))
 
+
 # Population chart --------------------------------------------------------
   
 ggplot(cph_pop, aes(x = year, y = people)) +
@@ -174,7 +175,7 @@ ggplot(cph_pop, aes(x = year, y = people)) +
   scale_y_continuous(limits = c(0,NA), labels = unit_format(unit = '', scale = 1e-3)) +
   labs(title = "Hvor bor folk i København?",
        subtitle = "Befolkningsudvikling i Københavns Kommunes bydele, 1991-2035 ('000 personer)",
-       caption = "@StraubingerDK | Data: Københavns Kommunes Statistikbank, tabel Be4.3 og Be62") +
+       caption = "Simon Straubinger (@StraubingerDK) | Kilde: Københavns Kommunes Statistikbank") +
   theme(plot.title = element_text(face = "bold", size = 16),
         plot.subtitle = element_text(size = 12),
         plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)),
@@ -220,7 +221,7 @@ ggplot(cph_income, aes(x = year, y = income_avg)) +
   scale_fill_manual(values = c("Under" = "#ff0000", "Over" = "#559fff")) +
   labs(title = "Hvor findes pengene i København?",
        subtitle = "Gnstl. disponibel indkomst i Københavns Kommunes bydele, 2000-2017 ('000 kr.)",
-       caption = "@StraubingerDK | Data: Københavns Kommunes Statistikbank, tabel In74") +
+       caption = "Simon Straubinger (@StraubingerDK) | Kilde: Københavns Kommunes Statistikbank") +
   theme(plot.title = element_text(face = "bold", size = 16),
         plot.subtitle = element_text(size = 12),
         plot.caption = element_text(color = "#606F7B", margin = margin(t = 10)),
@@ -237,4 +238,3 @@ ggplot(cph_income, aes(x = year, y = income_avg)) +
         panel.spacing = unit(1, "lines"))
 
 ggsave(width = width, height = height, here("plot_cph_income.png"), type = "cairo-png", dpi = 600)
-
