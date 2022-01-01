@@ -21,8 +21,8 @@ width  = round(aspect_ratio*height)
 
 # Arrows used to annotate LIX scores
 segment_arrows <- tibble(
-  x1 = c(as.Date("1985-01-01"), as.Date("1985-01-01"), as.Date("2020-01-01")),
-  x2 = c(as.Date("1985-01-01"), as.Date("1985-01-01"), as.Date("2020-01-01")),
+  x1 = c(as.Date("1985-01-01"), as.Date("1985-01-01"), as.Date("2022-01-01")),
+  x2 = c(as.Date("1985-01-01"), as.Date("1985-01-01"), as.Date("2022-01-01")),
   y1 = c(24, 26, 36),
   y2 = c(20, 34, 44)
 )
@@ -40,7 +40,7 @@ segment_pm <- tibble(
   x1 = c(as.Date("1985-01-01"), as.Date("1993-01-25"), as.Date("2001-11-27"), as.Date("2009-04-05"), 
          as.Date("2011-10-03"), as.Date("2015-06-28"), as.Date("2019-06-27")),
   x2 = c(as.Date("1993-01-25")-30, as.Date("2001-11-27")-30, as.Date("2009-04-05")-30, as.Date("2011-10-03")-30,
-         as.Date("2015-06-28")-30, as.Date("2019-06-27")-30, as.Date("2021-01-01")),
+         as.Date("2015-06-28")-30, as.Date("2019-06-27")-30, as.Date("2022-06-01")),
   y1 = c(17, 17, 17, 17, 17, 17, 17),
   y2 = c(17, 17, 17, 17, 17, 17, 17),
   col = c("#00583c", "#f04d46", "#002883", "#002883", "#f04d46", "#002883", "#f04d46")
@@ -48,7 +48,7 @@ segment_pm <- tibble(
 
 read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")) %>% 
   mutate(date = as.Date(date)) %>% 
-  filter(speaker == "Prime Minister" & occasion == "New Year") %>% 
+  filter(speaker_role == "Prime Minister" & occasion == "New Year") %>% 
   ggplot(aes(x = date, y = lix, color = factor(country))) +
   geom_line(size = 0.5) +
   geom_point(color = "white", stroke = 2) +
@@ -122,9 +122,9 @@ read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")
            family = plot_font,
            label = "Løkke") +
   annotate("text", 
-           x = as.Date("2021-01-01"),
+           x = as.Date("2019-06-27"),
            y = 16.2, 
-           hjust = "right",
+           hjust = "left",
            color = annotate_color,
            size = pm_size,
            family = plot_font,
@@ -152,7 +152,7 @@ read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")
            family = plot_font, 
            label = "LIX 25-34\nLet niveau\nF.eks. ugeblade") +
   annotate("text",
-           x = as.Date("2019-07-01"),
+           x = as.Date("2021-07-01"),
            y = 36, 
            vjust = "bottom", 
            hjust = "right",
@@ -182,7 +182,7 @@ read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")
            label = "Løkkes opgør med\nefterlønnen i 2011\nLIX på 30") +
   labs(title ="Hvor nem er statsministeren at forstå til nytår?",
        subtitle = "LIX (LæsbarhedsIndeX) over den danske og norske statsministers nytårstaler",
-       caption = "\nSimon Straubinger (@StraubingerDK) | Kilde: github.com/straubinger/lix") +
+       caption = "\nSimon Straubinger (@StraubingerDK) | Data: github.com/straubinger/lix") +
   theme(plot.title = element_text(face = "bold", size = 16),
         plot.subtitle = element_text(size = 12),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
@@ -224,7 +224,7 @@ segment_pm <- tibble(
 
 read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")) %>% 
   mutate(date = as.Date(date)) %>% 
-  filter(speaker == "Prime Minister" & occasion == "Opening of Parliament" &
+  filter(speaker_role == "Prime Minister" & occasion == "Opening of Parliament" &
            country %in% c("Denmark", "Sweden")) %>% 
 ggplot(aes(x = date, y = lix, color = factor(country))) +
   geom_line(size = 0.5) +
@@ -445,7 +445,7 @@ ggplot(aes(x = date, y = lix, color = factor(country))) +
            label = "Frederiksen 2019\nLaveste LIX på 28") +
   labs(title ="Hvor nem er statsministeren at forstå ved parlamentets åbning?",
        subtitle = "LIX (LæsbarhedsIndeX) over den danske og svenske statsministers tale ved parlamentets åbning",
-       caption = "\nSimon Straubinger (@StraubingerDK) | Kilde: github.com/straubinger/lix") +
+       caption = "\nSimon Straubinger (@StraubingerDK) | Data: github.com/straubinger/lix") +
   theme(plot.title = element_text(face = "bold", size = 16),
         plot.subtitle = element_text(size = 12),
         plot.caption = element_text(colour = annotate_color, margin = margin(t = 10)),
