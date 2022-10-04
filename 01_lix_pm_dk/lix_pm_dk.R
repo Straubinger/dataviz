@@ -193,7 +193,7 @@ read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")
         axis.ticks.x = element_line(),
         text = element_text(family = plot_font))
 
-ggsave("plot_lix_pm_newyear1.png", width = width, height = height, type = "cairo-png")
+ggsave("plot_lix_pm_newyear.png", width = width, height = height, type = "cairo-png", bg = "white")
 
 
 # LIX of Opening of Parliament speeches -----------------------------------
@@ -456,5 +456,5 @@ ggplot(aes(x = date, y = lix, color = factor(country))) +
         axis.ticks.x = element_line(),
         text = element_text(family = plot_font))
 
-ggsave("plot_lix_pm_openparl.png", width = width, height = height, type = "cairo-png")
+ggsave("plot_lix_pm_openparl.png", width = width, height = height, type = "cairo-png", bg = "white")
 
