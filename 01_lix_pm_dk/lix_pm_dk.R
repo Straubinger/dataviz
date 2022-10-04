@@ -4,6 +4,8 @@ library(extrafont)
 # The plots use the font Roboto, download the font from https://fonts.google.com/
 # After installation of the font execute this command to import the font: font_import()
 
+loadfonts(device = "win")
+
 # Theme elements for plots
 plot_font <- "Roboto"
 annotate_color <- "#606F7B"
@@ -215,7 +217,7 @@ segment_pm <- tibble(
    x2 = c(as.Date("1947-11-13")-30, as.Date("1950-10-30")-30, as.Date("1953-09-30")-30, as.Date("1955-02-01")-30, as.Date("1960-02-21")-30, 
           as.Date("1962-09-03")-30, as.Date("1968-02-02")-30, as.Date("1971-10-11")-30, as.Date("1972-10-05")-30, as.Date("1973-12-19")-30, 
           as.Date("1975-02-13")-30, as.Date("1982-09-10")-30, as.Date("1993-01-25")-30, as.Date("2001-11-27")-30, as.Date("2009-04-05")-30, 
-          as.Date("2011-10-03")-30, as.Date("2015-06-28")-30, as.Date("2019-06-27")-30, as.Date("2022-01-01")),
+          as.Date("2011-10-03")-30, as.Date("2015-06-28")-30, as.Date("2019-06-27")-30, as.Date("2023-01-01")),
   y1 = c(18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18),
   y2 = c(18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18),
   col = c("#002883", "#f04d46", "#002883", "#f04d46", "#f04d46", "#f04d46", "#f04d46", "#ed008c", "#f04d46", "#f04d46", "#002883", 
