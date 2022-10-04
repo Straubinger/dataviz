@@ -4,8 +4,6 @@ library(extrafont)
 # The plots use the font Roboto, download the font from https://fonts.google.com/
 # After installation of the font execute this command to import the font: font_import()
 
-loadfonts(device = "win")
-
 # Theme elements for plots
 plot_font <- "Roboto"
 annotate_color <- "#606F7B"
@@ -195,7 +193,7 @@ read.csv(url("https://raw.githubusercontent.com/Straubinger/lix/master/lix.csv")
         axis.ticks.x = element_line(),
         text = element_text(family = plot_font))
 
-ggsave("plot_lix_pm_newyear.png", width = width, height = height, type = "cairo-png")
+ggsave("plot_lix_pm_newyear1.png", width = width, height = height, type = "cairo-png")
 
 
 # LIX of Opening of Parliament speeches -----------------------------------
